@@ -1,4 +1,4 @@
-FROM php:8-fpm
+FROM php:7.4-fpm
 WORKDIR "/application"
 
 # Install selected extensions and other stuff
