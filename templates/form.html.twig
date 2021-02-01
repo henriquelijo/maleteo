@@ -1,52 +1,58 @@
-{% block footer %}
-    <form action="">
-        <p class="the-form__title heading3">
-            Solicita una demo
-        </p>
+{% block form %}
 
-        <div class="the-form__group">
-            <label for="name">
-                Nombre
-            </label>
-            <input type="text"
-                   id="name"
-                   class="the-form__input"
-                   placeholder="Vincent Chase">
+    <div class="col-md-5 col-md-offset-1">
+        <div class="the-form">
+            <form action="">
+                <p class="the-form__title heading3">
+                    Solicita una demo
+                </p>
+
+                <div class="the-form__group">
+                    <label for="name">
+                        Nombre
+                    </label>
+                    <input type="text"
+                           id="name"
+                           class="the-form__input"
+                           placeholder="Vincent Chase">
+                </div>
+
+                <div class="the-form__group">
+                    <label for="name">
+                        Email
+                    </label>
+                    <input type="email"
+                           id="name"
+                           class="the-form__input"
+                           placeholder="vincent@mga.com">
+                </div>
+
+                <div class="the-form__group">
+                    <label for="city">
+                        Ciudad
+                    </label>
+                    <select name=""
+                            id="city"
+                            class="the-form__input the-form__select">
+                        <option value="">Madrid</option>
+                        <option value="">Puerto Hurraco</option>
+                        <option value="">Villabolluyos</option>
+                    </select>
+                </div>
+
+                <div class="the-form__group the-form__group_checkbox">
+                    <input type="checkbox"
+                           id="privacity">
+                    <label for="privacity">
+                        Aceptas la <a href="#">política de privacidad</a>
+                    </label>
+                </div>
+
+                <input type="button"
+                       class="the-form__btn btn btn-lg btn-primary"
+                       value="Enviar">
+            </form>
         </div>
+    </div>
 
-        <div class="the-form__group">
-            <label for="name">
-                Email
-            </label>
-            <input type="email"
-                   id="name"
-                   class="the-form__input"
-                   placeholder="vincent@mga.com">
-        </div>
-
-        <div class="the-form__group">
-            <label for="city">
-                Ciudad
-            </label>
-            <select name=""
-                    id="city"
-                    class="the-form__input the-form__select">
-                <option value="">Madrid</option>
-                <option value="">Puerto Hurraco</option>
-                <option value="">Villabolluyos</option>
-            </select>
-        </div>
-
-        <div class="the-form__group the-form__group_checkbox">
-            <input type="checkbox"
-                   id="privacity">
-            <label for="privacity">
-                Aceptas la <a href="#">política de privacidad</a>
-            </label>
-        </div>
-
-        <input type="button"
-               class="the-form__btn btn btn-lg btn-primary"
-               value="Enviar">
-    </form>
 {% endblock %}

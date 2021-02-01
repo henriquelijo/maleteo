@@ -2,27 +2,29 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Document!{% endblock %}</title>
+        <title>{% block title %}Document{% endblock %}</title>
         {% block stylesheets %}
+
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
             <link href="https://fonts.googleapis.com/css?family=Catamaran:400,500&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="assets/styles/styles.css">
+            <link rel="stylesheet" href="{{ asset("/assets/styles/styles.css") }}">
+
         {% endblock %}
 
-
+        {% block javascripts %}{% endblock %}
     </head>
+
     <body>
+
         {% block body %}
-        <div class="wrapper">
-            <div class="container-fluid">
-                {% block header %}
-                {% endblock %}
-            </div>
-        </div>
 
-    {% block footer %}
-    {% endblock %}
+
+
+            {% include 'header.html.twig' %}
+
+            {% include 'main.html.twig' %}
+
+            {% include 'footer.html.twig' %}
         {% endblock %}
-
     </body>
 </html>
