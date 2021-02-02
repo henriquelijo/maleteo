@@ -18,9 +18,10 @@ class FormType extends AbstractType
         $builder->add('email', EmailType::class);
         $builder->add('ciudad', ChoiceType::class, [
             'choices' => [
-                'Madrid' =>'madrid',
+                'Lugo' =>'lugo',
                 'Barcelona' => 'barcelona',
-                'Valencia' => 'valencia'
+                'Bilbo' => 'bilbo',
+                'Santiago de Compostela' => 'santiago de Compostela'
             ]
         ]);
         $builder->add('privacidad', CheckboxType::class, [

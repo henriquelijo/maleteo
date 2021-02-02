@@ -1,57 +1,39 @@
 {% block form %}
 
+
+
     <div class="col-md-5 col-md-offset-1">
         <div class="the-form">
-            <form action="">
-                <p class="the-form__title heading3">
+            {{ form_start(formulario) }}
+            <p class="the-form__title heading3">
                     Solicita una demo
                 </p>
 
                 <div class="the-form__group">
-                    <label for="name">
-                        Nombre
-                    </label>
-                    <input type="text"
-                           id="name"
-                           class="the-form__input"
-                           placeholder="Vincent Chase">
+                    {{ form_label(formulario.nombre, 'Nombre') }}
+                    {{ form_widget(formulario.nombre, {'attr':{'class':'the-form__input'}}) }}
+
                 </div>
 
                 <div class="the-form__group">
-                    <label for="name">
-                        Email
-                    </label>
-                    <input type="email"
-                           id="name"
-                           class="the-form__input"
-                           placeholder="vincent@mga.com">
+                    {{ form_label(formulario.email, '@mail') }}
+                    {{ form_widget(formulario.email, {'attr':{'class':'the-form__input'}}) }}
+
                 </div>
 
                 <div class="the-form__group">
-                    <label for="city">
-                        Ciudad
-                    </label>
-                    <select name=""
-                            id="city"
-                            class="the-form__input the-form__select">
-                        <option value="">Madrid</option>
-                        <option value="">Puerto Hurraco</option>
-                        <option value="">Villabolluyos</option>
-                    </select>
+
+                    {{ form_label(formulario.ciudad, 'Ciudad') }}
+                    {{ form_widget(formulario.ciudad, {'attr': {'class': 'the-form_input the-form_select'}}) }}
+
                 </div>
 
                 <div class="the-form__group the-form__group_checkbox">
-                    <input type="checkbox"
-                           id="privacity">
-                    <label for="privacity">
-                        Aceptas la <a href="#">política de privacidad</a>
-                    </label>
+                    {{ form_row(formulario.privacidad) }}
                 </div>
 
-                <input type="button"
-                       class="the-form__btn btn btn-lg btn-primary"
-                       value="Enviar">
-            </form>
+            {{ form_widget(formulario.enviar, {'attr': {'class': 'the-form__btn btn btn-lg btn-primary'}} ) }}
+            {{ form_end(formulario) }}
         </div>
     </div>
 
