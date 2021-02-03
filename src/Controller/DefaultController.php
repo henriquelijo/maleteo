@@ -18,7 +18,7 @@ class DefaultController extends AbstractController
     public function homepage (Request $r)
     {
         $form = $this ->createForm(FormType::class);
-        $messaForm = $this->createForm(MessageFormType::class)
+        $messaForm = $this->createForm(MessageFormType::class);
         //$form = $this->createForm(‘App\Form\FormType’); Hace lo mismo que la línea anterior.
 
         return $this->render('base.html.twig', [
