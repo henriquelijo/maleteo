@@ -42,4 +42,19 @@ class FormController extends AbstractController
 
     }
 
+    /**
+     * @Route("/backend", name="backend")
+     */
+    public function demo (EntityManagerInterface $doctrine)
+    {
+        $back = $doctrine->getRepository(FormMaleteo::class);
+        $showbackend = $back->findAll();
+
+        return $this->render('showback.html.twig', [
+            'showbackend' => $showbackend
+        ]);
+
+
+    }
+
 }

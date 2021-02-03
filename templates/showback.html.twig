@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <table class="table table-dark table-hover">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Email</th>
+            <th scope="col">Ciudad</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in showbackend %}
+            <tr>
+                <th scope="row">{{item.id}}</th>
+                <td>{{item.name}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.city}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
