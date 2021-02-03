@@ -1,0 +1,18 @@
+{{ form_start(messageForm) }}
+<p class="the-form__title heading3">
+    ¿Qué tal tu experiencia? ¡Cuéntanosla!
+</p>
+
+<div class="the-form__group">
+    {{ form_label(messageForm.user, 'user') }}
+    {{ form_widget(messageForm.user, {'attr': {'class': 'the-form__input'}}) }}
+</div>
+
+<div class="the-form__group">
+    {{ form_label(messageForm.message, 'Tu experiencia:') }}
+    {{ form_widget(messageForm.message, {'attr': {'class': 'the-form__input'}}) }}
+</div>
+
+{{ form_widget(messageForm.enviar, {'attr': {'class': 'the-form__btn btn btn-lg btn-primary'}} ) }}
+
+{{ form_end(messageForm) }}
