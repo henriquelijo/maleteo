@@ -2,11 +2,14 @@
 
 namespace App\Controller;
 
-use App\Controller\Form\FormType;
+use App\Entity\FormMaleteo;
+use App\Form\FormType;
 use App\Form\MessageFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface;
+
 
 
 class DefaultController extends AbstractController
@@ -15,15 +18,32 @@ class DefaultController extends AbstractController
      * @Route("/maletea", name="homepage")
      */
 
-    public function homepage (Request $r)
+    public function homepage (EntityManagerInterface $doctrine, Request $r)
     {
-        $form = $this ->createForm(FormType::class);
-        $messaForm = $this->createForm(MessageFormType::class);
-        //$form = $this->createForm(‘App\Form\FormType’); Hace lo mismo que la línea anterior.
+        $form = $this->createForm(FormType::class);
+        $form->handleRequest($r);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $datos = $form->getData();
+
+            $datosformulario = new FormMaleteo();
+            $datosformulario->setName($datos["nombre"]);
+            $datosformulario->setEmail($datos["email"]);
+            $datosformulario->setCity($datos["ciudad"]);
+
+
+
+            $doctrine->persist($datosformulario);
+            $doctrine->flush($datosformulario);
+
+
+            $this->addFlash('success', 'Ha solicitado su demo');
+            $this->addFlash('success', 'En breve nos pondremos en contacto');
+        }
         return $this->render('base.html.twig', [
-            'formulario'=>$form->createView(),
-            'messageForm'=>$messaForm->createView()
+            'formulario'=>$form->createView()
+            //'messageForm'=>$messageForm->createView()
         ]);
 
     }

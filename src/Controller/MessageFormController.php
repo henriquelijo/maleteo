@@ -9,8 +9,9 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Form\MessageFormType;
 
-class messageFormController extends AbstractController
+class MessageFormController extends AbstractController
 {
     /**
      * @Route("/message", name="message")
@@ -21,7 +22,7 @@ class messageFormController extends AbstractController
         $form->handleRequest($r);
 
         if ($form->isSubmitted() && $form->isValid()){
-            $datos = $form-getData();
+            $datos = $form->getData();
 
             $message = new FormMaleteo();
             $message->setUser($datos["user"]);

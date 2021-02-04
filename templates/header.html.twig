@@ -4,9 +4,18 @@
 
 <div class="wrapper">
     <div class="container-fluid">
+        <a href="logger.html.twig">
+        <button class="btn-primary">Login</button>
+        </a>
         <header class="header">
             <img src="assets/img/logo.svg" alt="Maleteo">
         </header>
+        {% for message in app.flashes('success')%}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
     </div>
 </div>
 
