@@ -19,17 +19,13 @@
 
     <body>
 
+    {% include 'header.html.twig' %}
+
         {% block body %}
 
 
 
-            {% include 'header.html.twig' %}
-
-            {% include 'main.html.twig' %}
-
-{#            {% include 'message.html.twig' %}#}
-
-            {% include 'footer.html.twig' %}
         {% endblock %}
+    {% include 'footer.html.twig' %}
     </body>
 </html>

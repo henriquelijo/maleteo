@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\FormMaleteo;
+use App\Entity\Message;
 use App\Form\FormType;
 use App\Form\MessageFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -41,11 +42,25 @@ class DefaultController extends AbstractController
             $this->addFlash('success', 'Ha solicitado su demo');
             $this->addFlash('success', 'En breve nos pondremos en contacto');
         }
-        return $this->render('base.html.twig', [
-            'formulario'=>$form->createView()
+        $repository = $doctrine->getRepository(Message::class);
+        $message = $repository->findAll();
+        shuffle($message);
+        $message = array_slice($message, 0, 3);
+        return $this->render('main.html.twig', [
+            'formulario'=>$form->createView(),
+            'messages'=> $message
             //'messageForm'=>$messageForm->createView()
         ]);
 
     }
+    /**
+     * @Route("/", name="home")
+     */
+
+    public function home ()
+    {
+        return $this->redirectToRoute('homepage');
+    }
+
 
 }

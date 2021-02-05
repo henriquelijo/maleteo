@@ -1,0 +1,22 @@
+<section class="opinions">
+    <h2 class="opinions__title heading2">
+        Opiniones de otros guardianes
+    </h2>
+    <ul class="row">
+        {% for message in messages %}
+        <li class="col-md-4">
+            <div class="opinion">
+                <blockquote class="opinion__blq simple-bubble text-large">
+                    {{ message.message }}
+                </blockquote>
+                <p class="opinion__author text-large">
+                   {{ message.user }}
+                </p>
+                <p class="opinion__author-address">
+                    Tetuán, Madrid
+                </p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</section>

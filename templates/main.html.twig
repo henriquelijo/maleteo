@@ -1,6 +1,6 @@
 
-
-{% block main %}
+{% extends 'base.html.twig' %}
+{% block body %}
 
     <main>
         <div class="jumbo">
@@ -108,57 +108,10 @@
                             </div>
                         </div>
                         {% include 'form.html.twig' %}
-                        {% block form %}
-                        {% endblock %}
                     </div>
                 </section>
 
-                <section class="opinions">
-                    <h2 class="opinions__title heading2">
-                        Opiniones de otros guardianes
-                    </h2>
-                    <ul class="row">
-                        <li class="col-md-4">
-                            <div class="opinion">
-                                <blockquote class="opinion__blq simple-bubble text-large">
-                                    Tras el enorme éxito internacional de su primera colaboración, “Bailar”, que ganó un galardón en los Premios
-                                </blockquote>
-                                <p class="opinion__author text-large">
-                                    Sergio Garnacho
-                                </p>
-                                <p class="opinion__author-address">
-                                    Tetuán, Madrid
-                                </p>
-                            </div>
-                        </li>
-                        <li class="col-md-4">
-                            <div class="opinion">
-                                <blockquote class="opinion__blq simple-bubble text-large">
-                                    Tras el enorme éxito internacional de su primera colaboración, “Bailar”, que ganó un galardón en los Premios
-                                </blockquote>
-                                <p class="opinion__author text-large">
-                                    Sergio Garnacho
-                                </p>
-                                <p class="opinion__author-address">
-                                    Tetuán, Madrid
-                                </p>
-                            </div>
-                        </li>
-                        <li class="col-md-4">
-                            <div class="opinion">
-                                <blockquote class="opinion__blq simple-bubble text-large">
-                                    Tras el enorme éxito internacional de su primera colaboración, “Bailar”, que ganó un galardón en los Premios
-                                </blockquote>
-                                <p class="opinion__author text-large">
-                                    Sergio Garnacho
-                                </p>
-                                <p class="opinion__author-address">
-                                    Tetuán, Madrid
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
+                {% include 'opinion.html.twig' %}
             </div>
         </div>
 

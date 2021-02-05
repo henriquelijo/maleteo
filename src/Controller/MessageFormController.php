@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Entity\FormMaleteo;
+use App\Entity\Message;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,23 +22,24 @@ class MessageFormController extends AbstractController
         $form = $this->createForm(MessageFormType::class);
         $form->handleRequest($r);
 
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $datos = $form->getData();
 
-            $message = new FormMaleteo();
+            $message = new Message();
             $message->setUser($datos["user"]);
             $message->setMessage($datos['message']);
 
             $doctrine->persist($message);
             $doctrine->flush();
 
-            $this->addFlash('sucess', 'su comentario ha sido añadido');
-            return $this->redirect('homepage');
-        }else{
-            return $this->render('base.html.twig', [
+            $this->addFlash('success', 'su comentario ha sido añadido');
+            return $this->redirectToRoute('homepage');
+
+        }
+            return $this->render('message.html.twig', [
                 'messageForm' => $form->createView()
             ]);
-        }
+
 
     }
 

@@ -1,3 +1,5 @@
+{% extends 'base.html.twig' %}
+{% block body %}
 {{ form_start(messageForm, {action:path('message')}) }}
 <p class="the-form__title heading3">
     ¿Qué tal tu experiencia? ¡Cuéntanosla!
@@ -16,3 +18,4 @@
 {{ form_widget(messageForm.enviar, {'attr': {'class': 'the-form__btn btn btn-lg btn-primary'}} ) }}
 
 {{ form_end(messageForm) }}
+{% endblock %}
